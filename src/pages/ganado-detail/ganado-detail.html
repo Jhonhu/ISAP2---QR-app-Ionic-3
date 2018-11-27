@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar color='navbarganado'>
+    <ion-title>Detalles de {{ganado.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list >
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.name" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Edad</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.age" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Raza</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.race" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Peso</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.weight" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Tipo</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.type" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Estado de salud</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.health" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Vacunas</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.vaccine" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Tamanio</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.size" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Precio</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.price" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Descripcion</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.description" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Establo</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.barnyard" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Foto</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.photo" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Herradura</ion-label>
+        <ion-input type="text" [(ngModel)]="ganado.iron" [readonly]="!isEditable"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button full (click)="onSave()" *ngIf="isEditable">Save</button>
+</ion-content>
