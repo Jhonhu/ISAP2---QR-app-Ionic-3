@@ -1,0 +1,45 @@
+page-login {
+  .splash-bg {
+    position: relative;
+    background: url('../assets/img/ganado.jpg') no-repeat transparent;
+    background-size: cover;
+    height: 25%;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: animatedBackground 40s linear infinite;
+  }
+
+  @keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+
+  .splash-info {
+    position: relative;
+    z-index: 2;
+    margin-top: -34px;
+    text-align: center;
+  }
+  .splash-logo {
+    margin: auto;
+    background: url('../assets/img/icon-vaca.png') repeat transparent;
+    background-size: 100%;
+    width: 80px;
+    height: 80px;
+  }
+  .splash-intro {
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 80%;
+    margin: auto;
+  }
+  .ion-pad{
+    padding: 24px;
+  }
+  .centrado{
+  text-align: center;
+  }
+  .background{
+    background-color: gray;
+  }
+}

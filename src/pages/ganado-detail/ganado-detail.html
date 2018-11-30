@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar color='navbarganado'>
-    <ion-title>Detalles de {{ganado.name}}</ion-title>
+  <ion-navbar color='navdetails'>
+    <ion-title>Detalles </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -43,7 +43,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Tamanio</ion-label>
+        <ion-label floating>Tamaño</ion-label>
         <ion-input type="text" [(ngModel)]="ganado.size" [readonly]="!isEditable"></ion-input>
       </ion-item>
 
@@ -56,7 +56,7 @@
         <ion-label floating>Descripcion</ion-label>
         <ion-input type="text" [(ngModel)]="ganado.description" [readonly]="!isEditable"></ion-input>
       </ion-item>
-
+<!--
       <ion-item>
         <ion-label floating>Establo</ion-label>
         <ion-input type="text" [(ngModel)]="ganado.barnyard" [readonly]="!isEditable"></ion-input>
@@ -71,7 +71,7 @@
         <ion-label floating>Herradura</ion-label>
         <ion-input type="text" [(ngModel)]="ganado.iron" [readonly]="!isEditable"></ion-input>
       </ion-item>
-
+-->
     </ion-list>
-    <button ion-button full (click)="onSave()" *ngIf="isEditable">Save</button>
+    <button ion-button full color="energized" (click)="onSave()" *ngIf="isEditable">Guardar</button>
 </ion-content>

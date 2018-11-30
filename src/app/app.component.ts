@@ -1,12 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform  } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
+
 //import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { QrcodePage } from '../pages/qrcode/qrcode';
+import { AboutPage } from '../pages/about/about';
+
 
 
 @Component({
@@ -15,7 +19,7 @@ import { QrcodePage } from '../pages/qrcode/qrcode';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -27,7 +31,7 @@ export class MyApp {
       this.pages = [
       { title: 'Inicio', component: TabsPage },
       { title: 'QR', component: QrcodePage },
-      { title: 'List', component: ListPage }
+      { title: 'Acerca de...', component: AboutPage }
       ];
 
   }
@@ -46,6 +50,10 @@ export class MyApp {
       // we wouldn't want the back button to show in this scenario
       this.nav.setRoot(page.component);
     }
+
+    /*signOut(){
+      this.navCtrl.push(LoginPage);
+    }*/
 
 
 }

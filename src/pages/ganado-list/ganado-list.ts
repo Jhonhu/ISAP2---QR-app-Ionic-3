@@ -5,16 +5,19 @@ import { HttpClient }   from '@angular/common/http';
 import { ActionSheetController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
+
 import { GanadoDetailPage } from '../../pages/ganado-detail/ganado-detail';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-ganado-list',
   templateUrl: 'ganado-list.html',
 })
 export class GanadoListPage {
+
 
   ganados: any;
   ganado: any;
@@ -27,7 +30,8 @@ export class GanadoListPage {
     public actionSheetCtrl: ActionSheetController,
     public alertCtrl: AlertController,
     public httpClient: HttpClient,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+
   ) {
 
   }
@@ -135,5 +139,8 @@ export class GanadoListPage {
     this.navCtrl.push(GanadoDetailPage, { isEditable:false, ganado: data });
     });
   }
+
+
+
 
 }

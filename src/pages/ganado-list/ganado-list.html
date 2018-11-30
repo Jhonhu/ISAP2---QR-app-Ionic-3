@@ -29,6 +29,8 @@
   </ion-fab>
 
   <button ion-item *ngFor="let ganado of ganados" (click)="itemSelected(ganado)">
-    {{ ganado.name }}
+    <h1>{{ ganado.name }}</h1>
+    <h2>Raza: {{ganado.race}}</h2>
+    <p>$: {{ganado.price}}</p>
   </button>
 </ion-content>
