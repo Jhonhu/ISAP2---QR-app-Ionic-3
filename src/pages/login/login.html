@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 
-<ion-content scroll="false" >
+<ion-content scroll="false" class="form-content">
 
   <div class="splash-bg"></div>
     <div class="splash-info">
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-
+<!--
 <div card class="ion-pad" >
 
     <ion-item >
@@ -44,7 +44,46 @@
   <button ion-button color="energized"  round  (click)="register()">Crear cuenta</button>
 </div>
 
+-->
 
+<form class="form" padding [formGroup]="validations_form"  (ngSubmit)="tryLogin(validations_form.value)">
+
+    <ion-item>
+      <ion-label floating color="primary">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label floating color="primary">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <button class="submit-btn" ion-button full icon-start round type="submit" [disabled]="!validations_form.valid">
+      <ion-icon name="log-in"></ion-icon>
+      Entrar
+    </button>
+    <label class="error-message">{{errorMessage}}</label>
+  </form>
+  <div class="centrado" padding>
+    <p class="go-to-register">
+      No tienes cuenta? <a (click)="goRegisterPage()">Crea una es fácil.</a>
+    </p>
+  <button ion-button color="energized"  round  (click)="goRegisterPage()">Crear cuenta</button>
+  </div>
 
 
 </ion-content>

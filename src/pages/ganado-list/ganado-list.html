@@ -21,16 +21,33 @@
 <ion-content padding>
 
   <ion-fab top right edge >
-    <button ion-fab mini color='gray' (click)="onNew()" ><ion-icon name="add"></ion-icon></button>
+    <button ion-fab mini color='primary' (click)="openNewUserModal()" ><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
-  <ion-fab bottom right >
+<!--  <ion-fab bottom right >
     <button ion-fab color='danger' (click)="scanCode()" ><ion-icon name="md-qr-scanner"></ion-icon></button>
-  </ion-fab>
+  </ion-fab>-->
 
-  <button ion-item *ngFor="let ganado of ganados" (click)="itemSelected(ganado)">
+  <div class="list-mini">
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="viewDetails(item.payload.doc.id,item.payload.doc.data())">
+      <ion-thumbnail item-start>
+        <img [src]="item.payload.doc.data().image">
+      </ion-thumbnail>
+      <h1 color="primary">{{item.payload.doc.data().name}}</h1>
+      <h2 color="secondary">{{item.payload.doc.data().race}}</h2>
+      <p color="danger">$ {{item.payload.doc.data().price}}</p>
+      <button ion-button clear item-end>Detalles</button>
+    </ion-item>
+  </ion-list>
+</div>
+<!--
+<div >
+    <button ion-button color='light' (click)="botonScan()" ><ion-icon name="ion-star"></ion-icon>Qr Pagina</button>
+  </div>
+  <!--<button ion-item *ngFor="let ganado of ganados" (click)="itemSelected(ganado)">
     <h1>{{ ganado.name }}</h1>
     <h2>Raza: {{ganado.race}}</h2>
     <p>$: {{ganado.price}}</p>
-  </button>
+  </button>-->
 </ion-content>

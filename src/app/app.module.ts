@@ -14,9 +14,19 @@ import { GanadoListPage } from '../pages/ganado-list/ganado-list';
 import { UploadImagePage } from '../pages/upload-image/upload-image';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
+import { DetailQrPage } from '../pages/detail-qr/detail-qr';
+import { DetailsPage } from '../pages/details/details';
+
+
+import { environment } from '../environment/environment';
 
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
+import { FirebaseService } from '../pages/services/firebase.service';
+import { AuthService } from '../pages/services/auth.service';
 
 import { HttpClientModule }   from '@angular/common/http';
 
@@ -28,14 +38,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-const firebaseAuth = {
+/*const firebaseAuth = {
     apiKey: "AIzaSyBdvg1-6Z0ky9686PT5tFP66KI2ws8D2jw",
     authDomain: "ganado-app.firebaseapp.com",
     databaseURL: "https://ganado-app.firebaseio.com",
     projectId: "ganado-app",
     storageBucket: "ganado-app.appspot.com",
     messagingSenderId: "32195857911"
-  };
+  };*/
 
 @NgModule({
   declarations: [
@@ -50,7 +60,10 @@ const firebaseAuth = {
     GanadoListPage,
     UploadImagePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    NewTaskModalPage,
+    DetailQrPage,
+    DetailsPage
 
   ],
   imports: [
@@ -58,7 +71,7 @@ const firebaseAuth = {
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     NgxQRCodeModule,
-    AngularFireModule.initializeApp(firebaseAuth),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule
@@ -76,14 +89,19 @@ const firebaseAuth = {
     GanadoListPage,
     UploadImagePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    NewTaskModalPage,
+    DetailQrPage,
+    DetailsPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    
+    Camera,
+    FirebaseService,
+    AuthService,
   ]
 })
 export class AppModule {}
