@@ -24,7 +24,7 @@ export class GanadoDetailPage {
     console.log(this.ganado);
   }
 
-  onSave(){
+/*  onSave(){
     if(this.isNew){
       // send post method to save
       this.httpClient.post("https://ganadoqr-app.herokuapp.com/api/v1/ganados/", this.ganado ).subscribe((data)=>{
@@ -40,6 +40,6 @@ export class GanadoDetailPage {
         console.log(error);
       });
     }
-  }
+  }*/
 
 }

@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { ViewController, normalizeURL, ToastController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { ViewController, normalizeURL, ToastController, NavParams, AlertController, LoadingController, NavController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { FirebaseService } from '../services/firebase.service';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+
+import {QrcodeDetailPage} from '../../pages/qrcode-detail/qrcode-detail';
+
 import firebase from 'firebase';
 
 
@@ -17,7 +20,7 @@ export class DetailsPage {
   item: any;
   loading: any;
   captureDataUrl: string;
-
+  id: any;
 
   constructor(
     private navParams: NavParams,
@@ -28,9 +31,11 @@ export class DetailsPage {
     private firebaseService: FirebaseService,
     private loadingCtrl: LoadingController,
     private camera: Camera,
+    private navCtrl: NavController
   ) {
     this.loading = this.loadingCtrl.create();
     this.item = navParams.get('data');
+    this.id= this.item.uid;
   }
 
   ionViewWillLoad(){
@@ -108,47 +113,11 @@ export class DetailsPage {
     confirm.present();
   }
 
-/*openImagePicker(){
-    this.imagePicker.hasReadPermission()
-    .then((result) => {
-      if(result == false){
-        // no callbacks required as this opens a popup which returns async
-        this.imagePicker.requestReadPermission();
-      }
-      else if(result == true){
-        this.imagePicker.getPictures({
-          maximumImagesCount: 1
-        }).then(
-          (results) => {
-            for (var i = 0; i < results.length; i++) {
-              this.uploadImageToFirebase(results[i]);
-            }
-          }, (err) => console.log(err)
-        );
-      }
-    }, (err) => {
-      console.log(err);
-    });
+  qrDetail(){
+    this.navCtrl.push(QrcodeDetailPage, {data : this.id});
   }
 
-  uploadImageToFirebase(image){
-    this.loading.present();
-    image = normalizeURL(image);
-    let randomId = Math.random().toString(36).substr(2, 5);
-    console.log(randomId);
 
-    //uploads img to firebase storage
-    this.firebaseService.uploadImage(image, randomId)
-    .then(photoURL => {
-      this.image = photoURL;
-      this.loading.dismiss();
-      let toast = this.toastCtrl.create({
-        message: 'Image was updated successfully',
-        duration: 3000
-      });
-      toast.present();
-    })
-  }*/
   async getPicture(sourceType){
     try{
 
@@ -170,40 +139,6 @@ export class DetailsPage {
     }
 }
 
-/*
-      console.log(captureDataUrl)
-      captureDataUrl = 'data:image/jpeg;base64,' + captureDataUrl;
-      console.log(captureDataUrl);
-      this.upload(captureDataUrl);
 
-  }
-
-  upload(captureDataUrl) {
-    let storageRef = firebase.storage().ref('pictures');
-    // Create a timestamp as filename
-    const filename = Math.floor(Date.now() / 1000);
-
-    // Create a reference to 'images/todays-date.jpg'
-    const imageRef = storageRef.child(`images/${filename}.jpg`);
-
-    imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL)
-      .then((snapshot)=> {
-        // Do something here when the data is succesfully uploaded!
-        snapshot.ref.getDownloadURL()
-        this.showSuccesfulUploadAlert();
-    });
-  }
-
-  showSuccesfulUploadAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'Uploaded!',
-      subTitle: 'Picture is uploaded to Firebase',
-      buttons: ['OK']
-    });
-    alert.present();
-    // clear the previous photo data in the variable
-    this.captureDataUrl = "";
-  }
-*/
 
 }

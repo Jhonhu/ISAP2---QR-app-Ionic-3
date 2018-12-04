@@ -29,10 +29,6 @@ import { LoginPage } from '../login/login';
 export class GanadoListPage {
 
 
-  /*ganados: any;
-  ganado: any;
-  codedData: any;
-  qrcustomer: any;*/
     items: Array<any>;
     searched: Array<any>;
     private snapshotChangesSubscription: any;
@@ -53,12 +49,6 @@ export class GanadoListPage {
   ) {
 
   }
-/*
-  onFind(){
-    this.httpClient.get("https://ganadoqr-app.herokuapp.com/api/v1/ganados?sort[GanadoName]=1").subscribe((data)=>{
-      this.ganados = data;
-    });
-  }*/
 
   ionViewWillEnter(){
     /*this.onFind();*/
@@ -143,109 +133,12 @@ export class GanadoListPage {
   }
 
   presentLoading(time, present) {
- let loader = this.loadingCtrl.create({
-   content: "Cargando...",
-   dismissOnPageChange: present,
-   duration: time,
+   let loader = this.loadingCtrl.create({
+     content: "Cargando...",
+     dismissOnPageChange: present,
+     duration: time,
 
- });
- loader.present();
-}
-
-  /*onNew(){
-    this.navCtrl.push(GanadoDetailPage, { isEditable:true, ganado: {}, isNew:true });
+    });
+  loader.present();
   }
-
-  itemSelected(ganado){
-    var actionSheet = this.actionSheetCtrl.create({
-        buttons: [
-          {
-            text: 'Ver',
-            role: 'view',
-            handler: () => {
-              this.navCtrl.push(GanadoDetailPage, { isEditable:false, ganado: ganado });
-            }
-          },
-          {
-            text: 'Editar',
-            role: 'edit',
-            handler: () => {
-              this.navCtrl.push(GanadoDetailPage, { isEditable:true, ganado: ganado});
-            }
-          },{
-            text: 'Eliminar',
-            handler: () => {
-              this.ganado = ganado;
-              this.showPrompt();
-            }
-          },{
-            text: 'Cancelar',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-            }
-          }
-        ]
-      });
-    actionSheet.present();
-  }*/
-/*
-  showPrompt() {
-    const prompt = this.alertCtrl.create({
-      title: 'Elimiar ganado',
-      message: "Estas seguro de elimiar este ganado? ",
-      buttons: [
-        {
-          text: 'Cancelar',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Elimiar',
-          handler: data => {
-            this.onDelete();
-            console.log('Deleted');
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
-*/
-/*  onDelete(){
-    this.httpClient.delete("https://ganadoqr-app.herokuapp.com/api/v1/ganados/"+ this.ganado._id).subscribe((data)=>{
-      this.ganado = {};
-      this.onFind();
-    });
-  }*/
-
-//QR Scanner
-/*  scanCode() {
-
-    this.barcodeScanner.scan().then(barcodeData => {
-      var datos = barcodeData.text;
-
-      this.httpClient.get("https://ganadoqr-app.herokuapp.com/api/v1/ganados/"+datos).subscribe((data)=>{
-
-      this.navCtrl.push(GanadoDetailPage, { isEditable:false, ganado: data });
-      });
-    }, (err) => {
-        console.log('Error: ', err);
-    });
-
-  }*/
-
-
-/*
-  botonScan(datos){
-    this.httpClient.get("https://ganadoqr-app.herokuapp.com/api/v1/ganados/"+datos).subscribe((data)=>{
-    console.log(data);
-    this.navCtrl.push(GanadoDetailPage, { isEditable:false, ganado: data });
-    });
-  }*/
-
-
-
-
 }

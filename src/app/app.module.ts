@@ -17,6 +17,7 @@ import { RegisterPage } from '../pages/register/register';
 import { NewTaskModalPage } from '../pages/new-task-modal/new-task-modal';
 import { DetailQrPage } from '../pages/detail-qr/detail-qr';
 import { DetailsPage } from '../pages/details/details';
+import {QrcodeDetailPage} from '../pages/qrcode-detail/qrcode-detail';
 
 
 import { environment } from '../environment/environment';
@@ -38,14 +39,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-/*const firebaseAuth = {
-    apiKey: "AIzaSyBdvg1-6Z0ky9686PT5tFP66KI2ws8D2jw",
-    authDomain: "ganado-app.firebaseapp.com",
-    databaseURL: "https://ganado-app.firebaseio.com",
-    projectId: "ganado-app",
-    storageBucket: "ganado-app.appspot.com",
-    messagingSenderId: "32195857911"
-  };*/
+
 
 @NgModule({
   declarations: [
@@ -63,7 +57,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     RegisterPage,
     NewTaskModalPage,
     DetailQrPage,
-    DetailsPage
+    DetailsPage,
+    QrcodeDetailPage
 
   ],
   imports: [
@@ -93,6 +88,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     NewTaskModalPage,
     DetailQrPage,
     DetailsPage,
+    QrcodeDetailPage,
   ],
   providers: [
     StatusBar,

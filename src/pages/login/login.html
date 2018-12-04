@@ -15,36 +15,6 @@
       </div>
     </div>
 
-<!--
-<div card class="ion-pad" >
-
-    <ion-item >
-      <ion-label floating>Correo electronico</ion-label>
-      <ion-input type="text" #username></ion-input>
-    </ion-item>
-
-    <ion-item >
-      <ion-label floating>Contraseña</ion-label>
-      <ion-input type="password" #password></ion-input>
-    </ion-item>
-
-
-  <div padding>
-    <button class="ion-font" icon-start ion-button full round  button-block button-calm (click)="signInUser()">
-      <ion-icon name="log-in"></ion-icon>
-      Entrar
-    </button>
-  </div>
-
-
-</div>
-
-<div padding class="centrado">
-  <p text-center>Aun no tienes una cuenta? Registrate!</p>
-  <button ion-button color="energized"  round  (click)="register()">Crear cuenta</button>
-</div>
-
--->
 
 <form class="form" padding [formGroup]="validations_form"  (ngSubmit)="tryLogin(validations_form.value)">
 

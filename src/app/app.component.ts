@@ -11,6 +11,7 @@ import { RegisterPage } from '../pages/register/register';
 import { ListPage } from '../pages/list/list';
 import { QrcodePage } from '../pages/qrcode/qrcode';
 import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
 
 
 
@@ -32,7 +33,9 @@ export class MyApp {
       this.pages = [
       { title: 'Inicio', component: TabsPage },
       { title: 'QR', component: QrcodePage },
-      { title: 'Acerca de...', component: AboutPage }
+      { title: 'Acerca de...', component: AboutPage },
+      { title: 'Contacto', component: ContactPage },
+
       ];
 
   }
@@ -52,9 +55,7 @@ export class MyApp {
       this.nav.setRoot(page.component);
     }
 
-    /*signOut(){
-      this.navCtrl.push(LoginPage);
-    }*/
+
 
 
 }

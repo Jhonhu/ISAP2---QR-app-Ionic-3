@@ -13,8 +13,6 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegisterPage {
 
-/*  @ViewChild('username') user;
-  @ViewChild('password') password;*/
 
   validations_form: FormGroup;
     errorMessage: string = '';
@@ -70,25 +68,5 @@ export class RegisterPage {
 goLoginPage(){
   this.navCtrl.pop();
 }
-/*
-  alert(message: string){
-    this.alertCtrl.create({
-      title: 'Info',
-      subTitle: message,
-      buttons: ['Ok']
-    }).present();
-  }
 
-  registerUser(){
-    this.fire.auth.createUserWithEmailAndPassword(this.user.value, this.password.value)
-    .then(data =>{
-      console.log('got data', data);
-      this.alert('Usuario Registrado!');
-    }).catch(error =>{
-      console.log(error)
-      this.alert(error.message);
-    })
-    console.log('Registra usuario con', this.user.value, this.password.value)
-  }
-*/
 }

@@ -34,8 +34,8 @@ export class FirebaseService {
   }
 
   unsubscribeOnLogOut(){
-    //remember to unsubscribe from the snapshotChanges
-    // debugger;
+
+    
     this.snapshotChangesSubscription.unsubscribe();
   }
 
@@ -65,7 +65,7 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
       this.afs.collection('usuarios').doc(currentUser.uid).collection('ganado').add({
-        
+
         name: value.name,
         age: value.age,
         race: value.race,

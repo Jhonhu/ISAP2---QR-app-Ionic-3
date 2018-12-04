@@ -32,8 +32,6 @@ export class LoginPage {
      { type: 'minlength', message: 'La contraseña debe ser cuando menos 5 caracteres.' }
    ]
  };
-  /*@ViewChild('username') user;
-  @ViewChild('password') password;*/
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -59,30 +57,6 @@ export class LoginPage {
     });
   }
 
-
-
-/*
-  alert(message: string){
-      this.alertCtrl.create({
-        title: 'Info',
-        subTitle: message,
-        buttons: ['Ok']
-      }).present();
-    }
-
-    signInUser(){
-      this.fire.auth.signInAndRetrieveDataWithEmailAndPassword(this.user.value, this.password.value)
-      .then(data =>{
-        console.log('got data ', this.fire.auth.currentUser)
-        this.alert('Welcome You\'re logged in');
-        this.navCtrl.push(TabsPage);
-      }).catch(error =>{
-        console.log('Error ocurred', error);
-        this.alert(error.message);
-
-      })
-      //
-    }*/
 
     tryLogin(value){
     this.authService.doLogin(value)
